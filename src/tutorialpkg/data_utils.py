@@ -59,9 +59,9 @@ def handle_missing_values(df):
         df = df.drop(columns=['Name'])
         print("Dropped 'Name' column.")
 
-    # 删除缺失参与者数据的行（index 0, 17, 31）
-    df = df.drop([0, 17, 31], errors='ignore')
-    print("Dropped rows with indexes 0, 17, and 31.")
+    # # 删除缺失参与者数据的行（index 0, 17, 31）
+    # df = df.drop([0, 17, 31], errors='ignore')
+    # print("Dropped rows with indexes 0, 17, and 31.")
 
     # 重置索引
     df = df.reset_index(drop=True)
@@ -82,7 +82,7 @@ def replace_country_names(df):
     print("\nReplaced country names.")
     return df
 
-# 新增：描述 DataFrame 的函数
+# 描述 DataFrame 的函数
 def describe_dataframe(df):
     print(f"DataFrame shape: {df.shape}")
     print("\nFirst 5 rows:")
@@ -104,6 +104,7 @@ def merge_dataframes(events_df, npc_df):
     print("\nMerged DataFrame with NPC Codes:")
     print(merged_df[['country', 'Code', 'Name']].head())  # 仅显示合并的部分
     return merged_df
+
 
 # 主程序
 def main():
